@@ -1,0 +1,16 @@
+.abilities-li{
+    list-style:circle;
+
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+.card-img{
+    width: 500px;
+}
+.col{
+    justify-content: space-between;
+}
