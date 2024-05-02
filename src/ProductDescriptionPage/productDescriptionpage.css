@@ -1,16 +1,116 @@
-.abilities-li{
-    list-style:circle;
-
-}
-
-.card{
+.pokemon-card {
+    border: 1px solid #ccc;
     display: flex;
-    justify-content: center;
-    margin-bottom: 200px;
+    width: 75%;
+    height: 75%;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
 }
-.card-img{
-    width: 500px;
+.pokemon-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-left: 1px;
 }
+.pokemon-text{
+    display: flex;
+    justify-content: left;
+    font-size: 14px;
+}
+.pokemon-image {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+.pokemon-abilities {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.pokemon-abilities ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.pokemon-abilities li {
+    margin-bottom: 5px;
+}
+.pokemon-type{
+    display: flex;
+    flex-direction: row;
+    border-radius: 2px;
+    margin: 5px;
+    width: 75px;
+    
+}
+.pokemon-type ul{
+    padding-left: 10px;
+}
+
+.type-grass {
+    background-color: #78C850;
+}
+.type-fire {
+    background-color: #F08030;
+}
+.type-water {
+    background-color: aqua;
+}
+.type-flying{
+    background-color: #6890F0;
+}
+.type-bug {
+    background-color: #A8B820;
+}
+.type-poison {
+    background-color: blueviolet;
+}
+.type-normal {
+    background-color: #A8A878;
+}
+
 .col{
     justify-content: space-between;
+}
+.toggle-button {
+    appearance: none;
+    background-color: #ccc;
+    width: 60px;
+    height: 34px;
+    border-radius: 17px;
+    position: relative;
+    cursor: pointer;
+}
+.toggle-button::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.toggle-button:checked::before {
+    transform: translateX(26px);
+}
+
+.pdp-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: inherit;
+}
+
+.pdp-subcontainer{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    
 }

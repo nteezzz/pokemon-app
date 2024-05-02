@@ -4,8 +4,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -65,4 +63,20 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+}
+.dark-theme #grey-area{
+  background-color: #535353;
+}
+.dark-theme #white-space{
+  background-color: #333333;
 }

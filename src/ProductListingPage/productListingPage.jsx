@@ -3,9 +3,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './productListingPage.css'
 import { generateImageURL } from '../utils/imageURL';
+import { ThemeContext } from '../context/themeContext';
+import { useContext } from 'react';
 
 export const ProductListingPage = () => {
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [pokemonList, setPokemonList]= useState([]);
   useEffect(() => {
     // const fetchPokemonList = async () => {
@@ -29,12 +32,13 @@ export const ProductListingPage = () => {
   
   return (
     <div>
-      <h1>Pokémon App</h1>
+      <div className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
+      <div className='header-row'><h1>Pokémon App</h1><input type="checkbox" className="toggle-button" onClick={toggleTheme}/></div>
       <ul className='row'>
         {pokemonList.map((pokemon, index) => (
           <li key={index}>
             <div className='col'>
-            <div className="card">
+            <div className="card" id='grey-area'>
                 <img className="card-img-top" src={generateImageURL(index+1)} alt="pokemon-image"/>
                 <div className="card-body">
                 <h5 className="card-title">{pokemon.name}</h5>
@@ -48,6 +52,8 @@ export const ProductListingPage = () => {
 
         </li>
       </ul>
+    </div>
+      
     </div>
   );
 };
