@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { generateImageURL } from '../assets/imageURL';
+import { generateImageURL } from '../utils/imageURL';
 import './productDescriptionpage.css';
 import { PokemonType } from '../components/pokemonType';
 
