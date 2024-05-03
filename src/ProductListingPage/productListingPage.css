@@ -23,7 +23,8 @@ li{
     background-color: #333333;
     color: #ffffff;
   }
-  .header-row{
+
+.header-row{
     display: flex;
   }
 h1{
@@ -53,4 +54,14 @@ h1{
 }
 .toggle-button:checked::before {
     transform: translateX(26px);
+}
+.login-container{
+    display: flex;
+    margin-left: auto;
+    align-self: center;
+}
+.login-container button{
+    padding: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
 }

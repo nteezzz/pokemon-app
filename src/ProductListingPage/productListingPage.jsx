@@ -5,6 +5,7 @@ import './productListingPage.css'
 import { generateImageURL } from '../utils/imageURL';
 import { ThemeContext } from '../context/themeContext';
 import { useContext } from 'react';
+import { LogComponent } from '../components/logComponent';
 
 export const ProductListingPage = () => {
 
@@ -32,8 +33,10 @@ export const ProductListingPage = () => {
   
   return (
     <div>
+      
       <div className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
-      <div className='header-row'><h1>Pokémon App</h1><input type="checkbox" className="toggle-button" onClick={toggleTheme}/></div>
+      <div className='header-row'><h1>Pokémon App</h1><input type="checkbox" className="toggle-button" onClick={toggleTheme}/><div className='login-container'><LogComponent/></div></div>
+      
       <ul className='row'>
         {pokemonList.map((pokemon, index) => (
           <li key={index}>

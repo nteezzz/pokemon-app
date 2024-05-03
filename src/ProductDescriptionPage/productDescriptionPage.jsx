@@ -5,7 +5,8 @@ import { generateImageURL } from '../utils/imageURL';
 import './productDescriptionpage.css';
 import { PopulateType } from '../components/populateType.jsx';
 import { ThemeContext } from '../context/themeContext';
-
+import { PokemonStats } from '../components/pokemonStats.jsx';
+import { LogComponent } from '../components/logComponent.jsx';
 
 export const ProductDescriptionPage = () => {
 
@@ -32,23 +33,27 @@ const pokemonDetails = pokemon;
 
 return (
 <>
-  {pokemonDetails&&
-  <div className='pdp-container' id='white-space'>
-    <div className={`pdp-subcontainer ${theme==='light' ? 'light-theme' : 'dark-theme' }`}>
-      <input type="checkbox" className="toggle-button" onClick={toggleTheme} />
-      <div class="pokemon-card">
-        <div className="pokemon-name">
-          <h2>{pokemonDetails.name}#{ id.toString().padStart(3, '0')}</h2>
+
+{pokemonDetails&&
+<div className='main-container'>
+<div className={`login-container ${theme==='light' ? 'light-theme' : 'dark-theme' }`} id='pdp-login'><LogComponent/></div>
+<div className={`pdp-container ${theme==='light' ? 'light-theme' : 'dark-theme' }`}>
+    <input type="checkbox" className="toggle-button" onClick={toggleTheme} />
+    <div className='pokemon-card'id='grey-area'>
+      <div className='row'>
+        <div className='pokemon-header'><h2>{pokemonDetails.name}#{ id.toString().padStart(3, '0')}</h2></div>
+      </div>
+      <div className='row'>
+        <div className='pokemon-content'>
+        <div className='col'>
+        <img className="pokemon-img" src={generateImageURL(id)} alt={pokemonDetails.name} />
         </div>
-        <div className='row'>
-          <div className='col'>
-            <img className="pokemon-image" src={generateImageURL(id)} alt={pokemonDetails.name} />
-          </div>
-          <div className='col' id='stats'>
-            <div className='pokemon-text'>Height: {pokemonDetails.height}ft</div>
-            <div className='pokemon-text'>Weight: {pokemonDetails.weight}lbs</div>
+        <div className='col'>
+          <div className='pokemon-body'>
+          <div className='pokemon-text'><h5>Height: {pokemonDetails.height}ft</h5></div>
+            <div className='pokemon-text'><h5>Weight: {pokemonDetails.weight}lbs</h5></div>
             <div className="pokemon-abilities">
-              Abilities:
+              <h5>Abilities:</h5>
               <ul>
                 {pokemonDetails.abilities.map((ability, index)=>(
                 <li key={index}>{ability.ability.name}</li>
@@ -56,7 +61,7 @@ return (
               </ul>
             </div>
             <div className="pokemon-type">
-              Type:
+              <h5>Type:</h5>
               <ul>
                 {pokemonDetails.types.map((type, index)=>(
                 <li key={index}>
@@ -65,12 +70,17 @@ return (
                 ))}
               </ul>
             </div>
+            <PokemonStats stats={pokemonDetails.stats}/>
           </div>
+        </div>
         </div>
       </div>
     </div>
+
   </div>
-  }
+</div>
+  
+}
 </>
 
 );

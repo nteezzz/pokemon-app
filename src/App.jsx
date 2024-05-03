@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {ProductListingPage} from './ProductListingPage/productListingPage.jsx';
 import {ProductDescriptionPage} from './ProductDescriptionPage/productDescriptionPage.jsx';
 import { ThemeContext,ThemeProvider } from './context/themeContext.jsx';
+import{AuthProvider} from './context/authContext.jsx'
 
 function App() {
   return (  
-    <ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
       <Router>
       <Routes>
         <Route exact path="/" element={<ProductListingPage/>} />
@@ -14,6 +16,8 @@ function App() {
       </Routes>
     </Router>
     </ThemeProvider>  
+    </AuthProvider>
+    
   );
 }
 
