@@ -3,14 +3,22 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './productListingPage.css'
 import { generateImageURL } from '../utils/imageURL';
-import { ThemeContext } from '../context/themeContext';
-import { useContext } from 'react';
+// using Context API
+// import { ThemeContext } from '../context/themeContext';
+// import { useContext } from 'react';
 import { LogComponent } from '../components/logComponent';
+import {useSelector, useDispatch} from 'react-redux'
+import { ToggleSwitch } from '../components/toggleSwitch';
 
 export const ProductListingPage = () => {
-
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const [pokemonList, setPokemonList]= useState([]);
+  //using Redux  
+  const themeRedux= useSelector((state)=>state.theme.theme);
+  const dispatch= useDispatch()
+  
+  // Using ContextAPI
+  // const { theme, toggleTheme } = useContext(ThemeContext);
+  
   useEffect(() => {
     // const fetchPokemonList = async () => {
     //   try {
@@ -34,8 +42,8 @@ export const ProductListingPage = () => {
   return (
     <div>
       
-      <div className={theme === 'light' ? 'light-theme' : 'dark-theme'}>
-      <div className='header-row'><h1>Pokémon App</h1><input type="checkbox" className="toggle-button" onClick={toggleTheme}/><div className='login-container'><LogComponent/></div></div>
+      <div className={themeRedux === 'light' ? 'light-theme' : 'dark-theme'}>
+      <div className='header-row'><h1>Pokémon App</h1><ToggleSwitch/><div className='login-container'><LogComponent/></div></div>
       
       <ul className='row'>
         {pokemonList.map((pokemon, index) => (

@@ -81,30 +81,6 @@ h5{
 .type-normal {
     background-color: #A8A878;
 }
-.toggle-button {
-    appearance: none;
-    background-color: #ccc;
-    width: 60px;
-    height: 34px;
-    border-radius: 17px;
-    position: relative;
-    cursor: pointer;
-}
-.toggle-button::before {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-.toggle-button:checked::before {
-    transform: translateX(26px);
-}
-
 .login-container {
     display: flex;
     justify-content: end;

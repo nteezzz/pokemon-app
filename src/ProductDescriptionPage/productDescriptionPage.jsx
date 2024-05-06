@@ -4,16 +4,25 @@ import { useParams } from 'react-router-dom';
 import { generateImageURL } from '../utils/imageURL';
 import './productDescriptionpage.css';
 import { PopulateType } from '../components/populateType.jsx';
-import { ThemeContext } from '../context/themeContext';
+//using Context API
+//import { ThemeContext } from '../context/themeContext';
 import { PokemonStats } from '../components/pokemonStats.jsx';
 import { LogComponent } from '../components/logComponent.jsx';
+import { ToggleSwitch } from '../components/toggleSwitch.jsx';
+import {useSelector, useDispatch} from 'react-redux'
 
 export const ProductDescriptionPage = () => {
 
 const { id } = useParams();
 const URL = `https://pokeapi.co/api/v2/pokemon/${id}/`;
 const [pokemon, setPokemon] = useState();
-const {theme, toggleTheme}=useContext(ThemeContext);
+//using Context API
+//const {theme, toggleTheme}=useContext(ThemeContext);
+
+//Using Redux
+const themeRedux= useSelector((state)=>state.theme.theme);
+const dispatch= useDispatch();
+
 
 useEffect(() => {
 
@@ -33,12 +42,11 @@ const pokemonDetails = pokemon;
 
 return (
 <>
-
 {pokemonDetails&&
 <div className='main-container'>
-<div className={`login-container ${theme==='light' ? 'light-theme' : 'dark-theme' }`} id='pdp-login'><LogComponent/></div>
-<div className={`pdp-container ${theme==='light' ? 'light-theme' : 'dark-theme' }`}>
-    <input type="checkbox" className="toggle-button" onClick={toggleTheme} />
+<div className={`login-container ${themeRedux==='light' ? 'light-theme' : 'dark-theme' }`} id='pdp-login'><LogComponent/></div>
+<div className={`pdp-container ${themeRedux==='light' ? 'light-theme' : 'dark-theme' }`}>
+    <ToggleSwitch/>
     <div className='pokemon-card'id='grey-area'>
       <div className='row'>
         <div className='pokemon-header'><h2>{pokemonDetails.name}#{ id.toString().padStart(3, '0')}</h2></div>
